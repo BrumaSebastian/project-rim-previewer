@@ -1,0 +1,13 @@
+.fixed {
+  position: fixed;
+  top: -60px; /* Start hidden above */
+  left: 0;
+  width: 100%;
+  transition: top 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  opacity: 0; /* Initially invisible */
+}
+
+.fixed.show {
+  top: 0; /* Slide down into view */
+  opacity: 1; /* Fade in */
+}
