@@ -5,16 +5,14 @@
     class="w-full px-2 transition-all duration-300"
   ></app-header>
 
-  <div class="flex flex-1">
+  <div class="flex flex-row flex-1 my-3 mx-2">
     <!-- Sidebar (Menu) -->
-    <aside class="bg-secondary text-white w-full max-w-48 shrink-0">
-      <p>Menu</p>
-    </aside>
+    <app-navigation-menu class="flex-none w-40 shrink-0"> </app-navigation-menu>
 
     <!-- Main Content (Scrollable) -->
-    <main class="p-6 bg-gray-100 flex-1">
+    <main class="p-3 pr-0 bg-content flex-auto">
       <p>Main Content</p>
-      <div class="h-[2000px] bg-gray-300 mt-4">Scroll to test</div>
+      <div class="h-dvh bg-base-200">Scroll to test</div>
     </main>
   </div>
 

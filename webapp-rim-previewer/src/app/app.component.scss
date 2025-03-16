@@ -5,6 +5,7 @@
   width: 100%;
   transition: top 0.3s ease-in-out, opacity 0.3s ease-in-out;
   opacity: 0; /* Initially invisible */
+  z-index: 1;
 }
 
 .fixed.show {
