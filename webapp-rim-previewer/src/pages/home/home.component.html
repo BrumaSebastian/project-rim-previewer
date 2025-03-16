@@ -1,0 +1,18 @@
+<div class="flex flex-col gap-2 h-full">
+  <div class="flex flex-row flex-wrap gap-2">
+    <app-image-input
+      [selectText]="'Choose your car'"
+      [descriptionText]="'Only the side of the car is okay'"
+      [type]="ImageInput.Car"
+      class="flex-auto"
+    ></app-image-input>
+    <app-image-input
+      [selectText]="'Choose your rims'"
+      [descriptionText]="'Only the side of the rims is okay'"
+      [type]="ImageInput.Rim"
+      class="flex-auto"
+    ></app-image-input>
+  </div>
+
+  <app-image-input class="flex-auto"></app-image-input>
+</div>

@@ -1,0 +1,25 @@
+<div class="hero bg-base-200 p-4 h-full rounded-box">
+  <div class="hero-content text-center flex flex-col">
+    <div class="max-w-md">
+      <h1 class="text-5xl font-bold">{{ selectText() }}</h1>
+      <p class="py-6">{{ descriptionText() }}</p>
+    </div>
+
+    <img
+      *ngIf="imagePreview"
+      [src]="imagePreview"
+      class="w-64 h-64 object-cover rounded-lg shadow-lg"
+    />
+
+    <fieldset class="fieldset justify-items-center max-w-md">
+      <legend class="fieldset-legend">Pick a file</legend>
+      <input
+        type="file"
+        class="file-input"
+        accept=".jpg,.jpeg"
+        (change)="onFileSelected($event)"
+      />
+      <label class="fieldset-label">Max size 2MB</label>
+    </fieldset>
+  </div>
+</div>
