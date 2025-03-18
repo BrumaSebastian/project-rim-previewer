@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component, input } from '@angular/core';
+import { Component, inject, input } from '@angular/core';
 import { ImageInput } from '../../types/imageInput';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-image-input',
@@ -9,6 +10,8 @@ import { ImageInput } from '../../types/imageInput';
   styleUrl: './image-input.component.scss',
 })
 export class ImageInputComponent {
+  http: HttpClient = inject(HttpClient);
+
   selectText = input<string>('');
   descriptionText = input<string>('');
   type = input<ImageInput>(ImageInput.None);
@@ -35,6 +38,27 @@ export class ImageInputComponent {
         this.imagePreview = reader.result;
       };
       reader.readAsDataURL(file);
+
+      this.uploadImage(file);
     }
+  }
+
+  uploadImage(file: File) {
+    const formData = new FormData();
+    formData.append('file', file);
+
+    this.http
+      .post<{ class: string; confidence: number }>(
+        'http://127.0.0.1:8000/predict/',
+        formData
+      )
+      .subscribe(
+        (response) => {
+          console.log('Prediction:', response);
+        },
+        (error) => {
+          console.error('Error:', error);
+        }
+      );
   }
 }
